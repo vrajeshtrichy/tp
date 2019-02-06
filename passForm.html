@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>Payment Confirmation</title>
+    <style>
+
+      .form-control:focus {
+        border: none;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid #079bde;
+    border-radius: unset;
+}
+    .FormCondainer{
+        background-color: #eaeae9;
+        padding: 20px;
+    }
+    .PassForm{
+        padding: 12px;
+        background-color: white;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .PayForm{
+        padding: 12px;
+        background-color: white;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        border-radius: 5px;
+    }
+
+    .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    border: none;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-bottom: 1px solid #858586;
+    border-radius: unset;
+}
+
+.col-xs-3 {
+    width: 45%;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #646667;
+}
+
+.button {
+    background-color: #2196F3;
+    border: none;
+    color: white;
+    padding: 5px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+
+.button:hover {
+    background-color: #2196F3;
+    border: none;
+    color: white;
+    padding: 5px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+    </style>
+
+    <script>
+    $( document ).ready(function() {
+    var UrlData = window.location.href;
+    var Url = "https://www.google.com/search?pax=5&price=AUS%20$300";
+    var URLFOR = new URL(Url);
+    var NoOfPass = URLFOR.searchParams.get("pax");
+    var Price = URLFOR.searchParams.get("price");
+
+    var PriceDetail = "<h4>Total Price</h4><h3>"+Price+"</h3>";
+    $(".TotalPrice").append(PriceDetail);
+
+        var i;
+        for (i = 0; i < NoOfPass; i++) { 
+            var PassDetailFormDomEle = "<div class='PassForm'><h5>Passenger "+(i+1)+"</h5><form><div class='form-group'> <label for='Title'>Title</label> <input type='text' class='form-control' id='Title' placeholder='Enter the Title'></div><div class='form-group'> <label for='FirstName'>First Name</label> <input type='text' class='form-control' id='FirstName' placeholder='Enter the First Name'></div><div class='form-group'> <label for='LastName'>Last Name</label> <input type='text' class='form-control' id='LastName' placeholder='Enter the Last Name'></div><div class='form-group'> <label for='Age'>Age</label> <input type='text' class='form-control' id='Age' placeholder='Enter the Age'></div></div>";        
+            $(".PassDetailFormAppend").append(PassDetailFormDomEle);
+            console.log("NoOfPass[i]");
+        }
+
+    });
+    
+
+
+    </script>
+</head>
+<body>
+    
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 FormCondainer">
+
+        <div>
+            <h5>PASSENGERS</h5>
+        </div>
+
+        <div class="PassDetailFormAppend">
+
+        </div>
+
+            <div>
+                <h5>PAYMENT DETAILS</h5>
+            </div>
+
+        <div class="PayForm">
+
+                <div class='form-group'>
+                        <label for='Email-Id'>Email Id</label>
+                        <input type='email' class='form-control' id='Email-Id' placeholder='Enter the Email Id'>
+                    </div>
+                    <div class='form-group'>
+                        <label for='Contect-Number'>Contect Number</label>
+                        <input type='number' class='form-control' id='Contect-Number' placeholder='Enter the Contect Number'>
+                    </div>
+                        <div class="form-group">
+                            <label for="CardNum">Credit Card Number</label>
+                            <input type="number" class="form-control" id="CardNum"  placeholder="Enter the CardNum">
+                        </div>
+                        <div class="form-group">
+                            <label for="CardName">Name On Card</label>
+                            <input type="text" class="form-control" id="CardName"  placeholder="Enter the Name On Card">
+                        </div>
+                        <div class="form-group" style="margin-left: -15px;">
+                            <label class="col-sm-3 control-label" for="expiry-month">Expiration Date</label>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
+                                            <option>Month</option>
+                                            <option value="01">Jan</option>
+                                            <option value="02">Feb</option>
+                                            <option value="03">Mar</option>
+                                            <option value="04">Apr</option>
+                                            <option value="05">May</option>
+                                            <option value="06">June</option>
+                                            <option value="07">July</option>
+                                            <option value="08">Aug</option>
+                                            <option value="09">Sep</option>
+                                            <option value="10">Oct</option>
+                                            <option value="11">Nov</option>
+                                            <option value="12">Dec</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <select class="form-control" name="expiry-year">
+                                            <option value="13">2013</option>
+                                            <option value="14">2014</option>
+                                            <option value="15">2015</option>
+                                            <option value="16">2016</option>
+                                            <option value="17">2017</option>
+                                            <option value="18">2018</option>
+                                            <option value="19">2019</option>
+                                            <option value="20">2020</option>
+                                            <option value="21">2021</option>
+                                            <option value="22">2022</option>
+                                            <option value="23">2023</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group">
+                                <label for="Cvv">CVV</label>
+                                <input type="text" class="form-control" id="Cvv"  placeholder="Enter the Cvv">
+                            </div>
+
+                        <div class="form-group">
+                            <label for="BillAddress">Billing Address</label>
+                            <input type="email" class="form-control" id="BillAddress"  placeholder="Enter the Billing Address">
+                        </div>
+
+                        <div class="TotalPrice">
+                            
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary button">Confirm</button>
+                      </form>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
